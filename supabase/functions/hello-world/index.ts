@@ -8,7 +8,6 @@ import {supabase} from "../_shared/supabaseClient.ts";
 console.log("Hello from Functions!")
 
 serve(async (req) => {
-  const { name } = await req.json()
 
   const games = await supabase
     .from('games')
