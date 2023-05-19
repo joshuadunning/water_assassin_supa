@@ -20,4 +20,4 @@ jobs:
         with:
           version: 1.0.0
 
-      - run: supabase functions deploy hello-world --project-ref $PROJECT_ID
+      - run: supabase functions deploy hello-world --project-ref $PROJECT_ID --no-verify-jwt

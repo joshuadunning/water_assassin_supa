@@ -3,13 +3,20 @@
 // This enables autocomplete, go to definition, etc.
 
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
+import {supabase} from "../_shared/supabaseClient.ts";
 
 console.log("Hello from Functions!")
 
 serve(async (req) => {
   const { name } = await req.json()
+
+  const games = await supabase
+    .from('games')
+    .select('*');
+
+  const names = games.data.map((game: any) => game.name).join(', ');
   const data = {
-    message: `Hello ${name}!`,
+    message: `Hello ${names}!`,
   }
 
   return new Response(
