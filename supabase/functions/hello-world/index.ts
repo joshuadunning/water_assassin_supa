@@ -10,7 +10,7 @@ console.log("Hello from Functions!")
 serve(async (req) => {
 
   const games = await supabase
-    .from('games')
+    .from('game')
     .select('*');
 
   console.log(JSON.stringify(games))
