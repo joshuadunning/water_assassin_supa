@@ -13,6 +13,8 @@ serve(async (req) => {
     .from('games')
     .select('*');
 
+  console.log(JSON.stringify(games))
+
   const names = games.data?.map((game: any) => game.name).join(', ');
   const data = {
     message: `Hello ${names}!`,
